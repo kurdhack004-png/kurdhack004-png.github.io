@@ -2,7 +2,7 @@ const state={lang:localStorage.getItem("kt_lang")||"kr",places:[],cities:[],dist
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const t=k=>(window.I18N?.[k]||k);
 function tx(obj){return obj?.[state.lang]||obj?.en||obj?.kr||""}
-function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;","'":"&#39;"}[m]))}
+function esc(v){return String(v??"").replace(/[&<>"\']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","\'":"&#39;"}[m]))}
 function km(a,b,c,d){const R=6371,rad=x=>x*Math.PI/180,dLat=rad(c-a),dLon=rad(d-b),x=Math.sin(dLat/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(dLon/2)**2;return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x))}
 function google(lat,lng){return "https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(lat+","+lng)}
 function waze(lat,lng){return "https://waze.com/ul?ll="+encodeURIComponent(lat+","+lng)+"&navigate=yes&utm_source=kurdistan_tourism"}
