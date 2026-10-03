@@ -1,0 +1,13 @@
+{
+  "name":"Kurdistan Tourism",
+  "short_name":"Kurdistan Tourism",
+  "description":"Discover Kurdistan: places, cities, map, guides and travel information.",
+  "start_url":"/",
+  "scope":"/",
+  "display":"standalone",
+  "background_color":"#06100d",
+  "theme_color":"#07110e",
+  "lang":"ckb",
+  "dir":"rtl",
+  "icons":[{"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
