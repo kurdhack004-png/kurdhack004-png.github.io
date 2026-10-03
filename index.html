@@ -59,6 +59,47 @@
   </div>
 </section>
 
+<section class="section discovery" id="discoverHub">
+  <div class="wrap">
+    <div class="sectionIntro">
+      <div>
+        <div class="eyebrow">DISCOVER HUB</div>
+        <h2>کوردستان بە چوار ڕێگا بدۆزەرەوە</h2>
+        <p>هەر بەشێک بۆ جۆرێک لە گەشت دانراوە؛ لە مێژوو و شارەکانەوە تا سروشت و پلانی ڕۆژەکەت.</p>
+      </div>
+      <div class="livePill"><span></span> داتا بە شێوەی بەش‌بەش</div>
+    </div>
+    <div class="discoveryGrid">
+      <a class="discoveryCard discoveryHero" href="#places">
+        <div class="discoveryIcon">🏛️</div>
+        <div><span>01 · Explore</span><h3>شوێن و مێژوو</h3><p>قەڵا، شوێنەوار، مۆزەخانە و میراثی کوردستان.</p></div>
+        <b class="arrow">↗</b>
+      </a>
+      <a class="discoveryCard" href="#cities">
+        <div class="discoveryIcon">🏙️</div>
+        <div><span>02 · Cities</span><h3>شار و قەزا</h3><p>شارەکان، ناوچەکان و زانیارییە سەرەکییەکان.</p></div>
+        <b class="arrow">↗</b>
+      </a>
+      <a class="discoveryCard" href="#mapSection">
+        <div class="discoveryIcon">🗺️</div>
+        <div><span>03 · Navigate</span><h3>نەخشە و ڕێگا</h3><p>نزیکترین شوێن بدۆزەرەوە و بە Google Maps یان Waze بڕۆ.</p></div>
+        <b class="arrow">↗</b>
+      </a>
+      <a class="discoveryCard" href="#guide">
+        <div class="discoveryIcon">🥾</div>
+        <div><span>04 · Outdoor</span><h3>سروشت و گەشت</h3><p>شاخ، ئاوشار، دەریاچە و ڕێنمایییەکانی سەلامەتی.</p></div>
+        <b class="arrow">↗</b>
+      </a>
+    </div>
+    <div class="dataRibbon">
+      <div><strong>LIVE DATA</strong><span>شوێنەکان</span><b id="ribbonPlaces">0</b></div>
+      <div><strong>REGIONS</strong><span>شارەکان</span><b id="ribbonCities">0</b></div>
+      <div><strong>AREAS</strong><span>قەزاکان</span><b id="ribbonDistricts">0</b></div>
+      <div><strong>SAVED</strong><span>پاشەکەوتکراو</span><b id="ribbonSaved">0</b></div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="places">
   <div class="wrap">
     <div class="head"><div><div class="eyebrow">EXPLORE</div><h2 data-i18n="places">شوێنەکان</h2><p data-i18n="placesIntro">شوێنەکان بە جۆر، شار، دووری و گەڕان بدۆزەرەوە.</p></div><div class="headTools"><select id="sort" class="sort" onchange="sortPlaces()"><option value="default" data-i18n="default">بنەڕەت</option><option value="distance" data-i18n="sortDistance">نزیکترین یەکەم</option></select><button class="viewBtn active" id="gridViewBtn" onclick="setView('grid')">▦</button><button class="viewBtn" id="listViewBtn" onclick="setView('list')">☷</button></div></div>
