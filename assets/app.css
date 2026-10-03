@@ -34,3 +34,26 @@ body{overflow-x:hidden}
 .trustGrid>div{background:#0b1a15e8;padding:18px 20px;display:flex;align-items:center;gap:10px}
 .trustGrid b{font-size:12px}.trustGrid small{display:block;color:#7f958c;font-size:9px}
 @media(max-width:700px){.trustStrip{margin-top:-20px}.trustGrid{grid-template-columns:1fr 1fr}.trustGrid>div{padding:14px}.trustGrid small{font-size:8px}}
+
+/* DISCOVERY HUB */
+.discovery{padding-top:72px;background:linear-gradient(180deg,#07130f,#091812)}
+.sectionIntro{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:24px}
+.sectionIntro h2{font-size:clamp(30px,4vw,48px);line-height:1.12;margin:8px 0 10px;letter-spacing:-1.5px}
+.sectionIntro p{margin:0;color:var(--muted);max-width:720px}
+.livePill{white-space:nowrap;border:1px solid #72d2a033;background:#72d2a00c;border-radius:999px;padding:8px 12px;color:#a8c8ba;font-size:10px}
+.livePill span{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px #72d2a014;margin-left:6px}
+.discoveryGrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:13px}
+.discoveryCard{position:relative;min-height:190px;padding:25px;border:1px solid #ffffff12;border-radius:24px;background:radial-gradient(circle at 100% 0,#72d2a012,transparent 45%),linear-gradient(145deg,#10261f,#0a1814);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
+.discoveryCard:hover{transform:translateY(-5px);border-color:#72d2a055;box-shadow:0 22px 60px #0005}
+.discoveryHero{grid-row:span 2;min-height:393px;background:radial-gradient(circle at 90% 10%,#e8c76d16,transparent 35%),radial-gradient(circle at 20% 80%,#72d2a012,transparent 35%),linear-gradient(145deg,#15352a,#081611)}
+.discoveryIcon{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;font-size:25px;background:#ffffff09;border:1px solid #ffffff12;box-shadow:inset 0 1px #fff1}
+.discoveryCard span{display:block;color:#78a493;font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-top:18px}
+.discoveryCard h3{font-size:24px;margin:5px 0}
+.discoveryCard p{color:#9db3a9;font-size:12px;max-width:430px;margin:0}
+.discoveryHero h3{font-size:34px}
+.arrow{position:absolute;left:22px;bottom:22px;width:35px;height:35px;border-radius:50%;display:grid;place-items:center;background:#ffffff08;color:var(--green);border:1px solid #ffffff15}
+.dataRibbon{display:grid;grid-template-columns:repeat(4,1fr);margin-top:13px;border:1px solid #ffffff12;border-radius:18px;overflow:hidden;background:#ffffff06}
+.dataRibbon>div{padding:15px 18px;border-left:1px solid #ffffff0b;display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:10px}
+.dataRibbon>div:last-child{border-left:0}.dataRibbon strong{grid-column:1/-1;font-size:8px;letter-spacing:1.5px;color:#6f9182}.dataRibbon span{font-size:10px;color:#9fb3aa}.dataRibbon b{font-size:20px;color:#f0f6f3}
+@media(max-width:850px){.discoveryGrid{grid-template-columns:1fr 1fr}.discoveryHero{grid-row:span 2}.sectionIntro{align-items:start;flex-direction:column}.livePill{align-self:flex-start}}
+@media(max-width:600px){.discovery{padding-top:55px}.discoveryGrid{grid-template-columns:1fr}.discoveryHero{grid-row:auto;min-height:270px}.discoveryCard{min-height:175px}.discoveryHero h3{font-size:28px}.dataRibbon{grid-template-columns:1fr 1fr}.dataRibbon>div:nth-child(2){border-left:0}.dataRibbon>div{padding:13px}}
