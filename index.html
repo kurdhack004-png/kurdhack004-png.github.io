@@ -1,51 +1,108 @@
-<!doctype html><html lang="ckb" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Kurdistan Tourism — کوردستان بگەڕێ</title>
-<meta name="description" content="شوێنە گەشتیارییەکان، شارەکان، قەزاکان، نەخشە، دووری، ڕێنمایی و ئاگاداری.">
-<meta name="theme-color" content="#07110e"><link rel="stylesheet" href="assets/app.css"></head><body>
-<div class="topbar"><div class="wrap"><span>کوردستان • گەشت • سروشت • مێژوو</span><span>KR · العربية · EN</span></div></div>
-<header class="nav"><div class="wrap navin"><a class="brand" href="#"><span class="brandMark">✦</span><span>Kurdistan Tourism</span></a>
-<nav class="navlinks"><a href="#places" data-i18n="places">شوێنەکان</a><a href="#cities" data-i18n="cities">شارەکان</a><a href="#mapSection" data-i18n="map">نەخشە</a><a href="#guide" data-i18n="guide">ڕێنمایی</a><a href="#alertsSection" data-i18n="alerts">ئاگاداری</a></nav>
-<div class="navtools"><button class="langbtn" id="langBtn" onclick="switchLang()">KR</button><button class="iconbtn" onclick="document.querySelector('#search').focus()">⌕</button></div></div></header>
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07110e">
+<meta name="description" content="Kurdistan Tourism — شوێنە گەشتیارییەکان، شارەکان، قەزاکان، نەخشە و ڕێنمایی.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg">
+<link rel="stylesheet" href="assets/app.css">
+<title>Kurdistan Tourism — کوردستان بدۆزەرەوە</title>
+</head>
+<body>
+<div class="topbar"><div class="wrap topin"><span>کوردستان • گەشت • سروشت • مێژوو</span><span>Mobile First · GitHub Data · KR / AR / EN</span></div></div>
 
-<main>
-<section class="hero"><div class="heroBg"></div><div class="wrap"><div class="heroContent">
-<div class="eyebrow">DISCOVER KURDISTAN</div><h1><span data-i18n="discover">کوردستان بدۆزەرەوە</span><br><span>لە یەک وێبسایت.</span></h1>
-<p class="heroLead" data-i18n="heroText">شوێنە گەشتیارییەکان، شارەکان، قەزاکان، سروشت، میرات و ڕێنمایی گەشت لە یەک وێبسایتی مۆبایل-فیرست.</p>
-<div class="actions"><a class="btn primary" href="#places" data-i18n="explore">شوێنەکان ببینە</a><button class="btn ghost" onclick="locateUser()">📍 <span data-i18n="myLocation">شوێنی من</span></button><a class="btn ghost" href="#mapSection" data-i18n="map">نەخشە</a></div>
-<div class="searchBox"><input id="search" data-i18n-placeholder="search" placeholder="گەڕان" onkeydown="if(event.key==='Enter')doSearch()"><button onclick="doSearch()" data-i18n="search">گەڕان</button></div>
-<div class="quick"><button onclick="setCategory('historic')">🏛️ <span data-i18n="historic">مێژوویی</span></button><button onclick="setCategory('nature')">🌿 <span data-i18n="nature">سروشت</span></button><button onclick="setCategory('mountain')">⛰️ <span data-i18n="mountain">شاخ</span></button><button onclick="setCategory('water')">💧 <span data-i18n="water">ئاوشار</span></button><button onclick="setCategory('lake')">🏞️ <span data-i18n="lake">دەریاچە</span></button></div>
-<div class="heroStats"><div class="heroStat"><b id="placeCount">0+</b><span data-i18n="places">شوێنەکان</span></div><div class="heroStat"><b id="cityCount">0+</b><span data-i18n="cities">شارەکان</span></div><div class="heroStat"><b id="districtCount">0+</b><span data-i18n="districts">قەزاکان</span></div></div><div id="appError"></div>
-</div></div></section>
+<header class="nav">
+  <div class="wrap navin">
+    <a class="brand" href="#top" aria-label="Kurdistan Tourism"><span class="brandMark">✦</span><span>Kurdistan Tourism</span></a>
+    <nav class="navlinks">
+      <a href="#places" data-i18n="places">شوێنەکان</a>
+      <a href="#cities" data-i18n="cities">شارەکان</a>
+      <a href="#mapSection" data-i18n="map">نەخشە</a>
+      <a href="#guide" data-i18n="guide">ڕێنمایی</a>
+      <a href="#alertsSection" data-i18n="alerts">ئاگاداری</a>
+    </nav>
+    <div class="navtools">
+      <label class="language" aria-label="Language"><span>🌐</span><select id="langSelect" onchange="setLang(this.value)"><option value="kr">KR</option><option value="ar">AR</option><option value="en">EN</option></select></label>
+      <button class="iconbtn" aria-label="Search" onclick="focusSearch()">⌕</button>
+      <button class="menuBtn" aria-label="Menu" onclick="toggleMobileMenu()">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobileMenu">
+    <a href="#places" data-i18n="places">شوێنەکان</a><a href="#cities" data-i18n="cities">شارەکان</a><a href="#mapSection" data-i18n="map">نەخشە</a><a href="#guide" data-i18n="guide">ڕێنمایی</a><a href="#alertsSection" data-i18n="alerts">ئاگاداری</a>
+  </div>
+</header>
 
-<section class="section" id="places"><div class="wrap"><div class="head"><div><div class="eyebrow">EXPLORE</div><h2 data-i18n="places">شوێنەکان</h2><p>هەر شوێنێک دەتوانێت تا ٥ وێنە، زانیاری، کوردینات، دووری و ڕێگای گەیشتن هەبێت.</p></div><select id="sort" class="sort" onchange="sortPlaces()"><option value="default">Default</option><option value="distance" data-i18n="sortDistance">نزیکترین یەکەم</option></select></div>
-<div class="filters"><button class="chip active" data-cat="all" onclick="setCategory('all')" data-i18n="all">هەموو</button><button class="chip" data-cat="historic" onclick="setCategory('historic')" data-i18n="historic">مێژوویی</button><button class="chip" data-cat="nature" onclick="setCategory('nature')" data-i18n="nature">سروشت</button><button class="chip" data-cat="mountain" onclick="setCategory('mountain')" data-i18n="mountain">شاخ</button><button class="chip" data-cat="water" onclick="setCategory('water')" data-i18n="water">ئاوشار</button><button class="chip" data-cat="lake" onclick="setCategory('lake')" data-i18n="lake">دەریاچە</button><button class="chip" data-cat="heritage" onclick="setCategory('heritage')" data-i18n="heritage">میرات</button><button class="chip" data-cat="cultural" onclick="setCategory('cultural')" data-i18n="cultural">کەلتووری</button></div>
-<div class="grid" id="placeGrid"></div></div></section>
+<main id="top">
+<section class="hero">
+  <div class="heroBg"></div><div class="heroGlow"></div>
+  <div class="wrap heroLayout">
+    <div class="heroContent">
+      <div class="eyebrow">DISCOVER KURDISTAN</div>
+      <h1><span data-i18n="discover">کوردستان بدۆزەرەوە</span><br><strong data-i18n="heroSecond">بە ئاسانی.</strong></h1>
+      <p class="heroLead" data-i18n="heroText">شوێنە گەشتیارییەکان، شارەکان، قەزاکان، سروشت، میرات و ڕێنمایی گەشت لە یەک وێبسایتی مۆبایل-فیرست.</p>
+      <div class="actions"><a class="btn primary" href="#places" data-i18n="explore">شوێنەکان ببینە</a><button class="btn ghost" onclick="locateUser()">📍 <span data-i18n="myLocation">شوێنی من</span></button><a class="btn ghost" href="#mapSection" data-i18n="map">نەخشە</a></div>
+      <div class="searchBox"><span>⌕</span><input id="search" data-i18n-placeholder="search" placeholder="گەڕان بۆ شوێن، شار یان قەزا" autocomplete="off" oninput="liveSearch()" onkeydown="if(event.key==='Enter')doSearch()"><button onclick="doSearch()" data-i18n="search">گەڕان</button></div>
+      <div id="searchHint" class="searchHint"></div>
+      <div class="quick"><button onclick="setCategory('historic')">🏛️ <span data-i18n="historic">مێژوویی</span></button><button onclick="setCategory('nature')">🌿 <span data-i18n="nature">سروشت</span></button><button onclick="setCategory('mountain')">⛰️ <span data-i18n="mountain">شاخ</span></button><button onclick="setCategory('water')">💧 <span data-i18n="water">ئاوشار</span></button><button onclick="setCategory('lake')">🏞️ <span data-i18n="lake">دەریاچە</span></button></div>
+      <div class="heroStats"><div><b id="placeCount">0+</b><span data-i18n="places">شوێنەکان</span></div><div><b id="cityCount">0+</b><span data-i18n="cities">شارەکان</span></div><div><b id="districtCount">0+</b><span data-i18n="districts">قەزاکان</span></div><div><b id="savedCount">0</b><span data-i18n="favorites">پاشەکەوتکراو</span></div></div>
+      <div id="appError" class="appError"></div>
+    </div>
+    <div class="heroPanel">
+      <div class="heroPanelTop"><span>✦</span><span data-i18n="trip">پلانی گەشت</span></div>
+      <div class="routeLine"><span>📍</span><div><small data-i18n="start">دەستپێک</small><b data-i18n="yourLocation">شوێنی تۆ</b></div></div>
+      <div class="routeLine"><span>◎</span><div><small data-i18n="destination">مەبەست</small><b data-i18n="choosePlace">شوێنێک هەڵبژێرە</b></div></div>
+      <button class="panelAction" onclick="locateUser();focusSearch()" data-i18n="startExploring">دەست بە گەڕان بکە →</button>
+      <div class="panelFoot"><span>⚡ <span data-i18n="fast">خێرا</span></span><span>🗺️ <span data-i18n="mapReady">نەخشە ئامادەیە</span></span><span>♥ <span data-i18n="offlineSaved">پاشەکەوتی ناوخۆیی</span></span></div>
+    </div>
+  </div>
+</section>
 
-<section class="section alt" id="mapSection"><div class="wrap"><div class="head"><div><div class="eyebrow">LIVE MAP</div><h2 data-i18n="mapAll">هەموو شوێنەکان لەسەر نەخشە</h2><p>نەخشەی OpenStreetMap؛ marker ـی هەر شوێنێک کلیک بکە بۆ Google Maps یان Waze.</p></div><button class="btn primary" onclick="locateUser()">📍 <span data-i18n="myLocation">شوێنی من</span></button></div>
-<div class="mapShell"><div class="mapHeader"><div><b data-i18n="map">نەخشە</b><br><small class="muted">📍 <span id="locationText">—</span></small></div><span class="muted">MOBILE READY</span></div><div id="map" class="map"><div id="mapFallback" class="mapFallback"></div></div><div class="mapLegend"><span>🟢 شوێنی گەشتیاری</span><span>📍 شوێنی من</span><span>↗ Google Maps</span><span>↗ Waze</span></div></div></div></section>
+<section class="section" id="places">
+  <div class="wrap">
+    <div class="head"><div><div class="eyebrow">EXPLORE</div><h2 data-i18n="places">شوێنەکان</h2><p data-i18n="placesIntro">شوێنەکان بە جۆر، شار، دووری و گەڕان بدۆزەرەوە.</p></div><div class="headTools"><select id="sort" class="sort" onchange="sortPlaces()"><option value="default" data-i18n="default">بنەڕەت</option><option value="distance" data-i18n="sortDistance">نزیکترین یەکەم</option></select><button class="viewBtn active" id="gridViewBtn" onclick="setView('grid')">▦</button><button class="viewBtn" id="listViewBtn" onclick="setView('list')">☷</button></div></div>
+    <div class="filters"><button class="chip active" data-cat="all" onclick="setCategory('all')" data-i18n="all">هەموو</button><button class="chip" data-cat="historic" onclick="setCategory('historic')" data-i18n="historic">مێژوویی</button><button class="chip" data-cat="nature" onclick="setCategory('nature')" data-i18n="nature">سروشت</button><button class="chip" data-cat="mountain" onclick="setCategory('mountain')" data-i18n="mountain">شاخ</button><button class="chip" data-cat="water" onclick="setCategory('water')" data-i18n="water">ئاوشار</button><button class="chip" data-cat="lake" onclick="setCategory('lake')" data-i18n="lake">دەریاچە</button><button class="chip" data-cat="heritage" onclick="setCategory('heritage')" data-i18n="heritage">میرات</button><button class="chip" data-cat="cultural" onclick="setCategory('cultural')" data-i18n="cultural">کەلتووری</button></div>
+    <div class="advancedFilters"><label><span data-i18n="city">شار</span><select id="cityFilter" onchange="applyAdvancedFilters()"><option value="">هەموو</option></select></label><label><span data-i18n="district">قەزا</span><select id="districtFilter" onchange="applyAdvancedFilters()"><option value="">هەموو</option></select></label><button class="clearBtn" onclick="clearFilters()" data-i18n="clearFilters">پاککردنەوە</button></div>
+    <div class="grid" id="placeGrid"></div>
+  </div>
+</section>
 
-<section class="section" id="cities"><div class="wrap"><div class="head"><div><div class="eyebrow">CITIES</div><h2 data-i18n="citiesTitle">شارەکانی کوردستان</h2><p>شارەکان لەگەڵ پارێزگا، کوردینات و زانیاریی کورت.</p></div></div><div class="cityGrid" id="cityGrid"></div></div></section>
-<section class="section alt" id="districts"><div class="wrap"><div class="head"><div><div class="eyebrow">ADMIN AREAS</div><h2 data-i18n="districtsTitle">قەزا و ناوچەکان</h2><p>داتاکە لە data/districts.json ـە و دەتوانیت لە GitHub نوێی بکەیت.</p></div></div><div class="districtList" id="districtGrid"></div></div></section>
+<section class="section alt" id="mapSection">
+  <div class="wrap">
+    <div class="head"><div><div class="eyebrow">INTERACTIVE MAP</div><h2 data-i18n="mapAll">هەموو شوێنەکان لەسەر نەخشە</h2><p data-i18n="mapIntro">Marker ـەکان بکەوە بۆ وردەکاری و کردنەوەی Google Maps یان Waze.</p></div><button class="btn primary" onclick="locateUser()">📍 <span data-i18n="myLocation">شوێنی من</span></button></div>
+    <div class="mapShell"><div class="mapHeader"><div><b data-i18n="map">نەخشە</b><small> · <span id="locationText" data-i18n="locationWaiting">چاوەڕوانی شوێن...</span></small></div><div class="mapTools"><button class="miniBtn" onclick="fitAll()" data-i18n="showAll">هەموو پیشان بدە</button><button class="miniBtn" onclick="locateUser()">📍</button></div></div><div id="map" class="map"><div id="mapFallback" class="mapFallback"></div></div><div class="mapLegend"><span>🟢 <span data-i18n="tourismMarker">شوێنی گەشتیاری</span></span><span>📍 <span data-i18n="myLocation">شوێنی من</span></span><span>↗ Google Maps</span><span>↗ Waze</span></div></div>
+  </div>
+</section>
 
-<section class="section" id="guide"><div class="wrap"><div class="head"><div><div class="eyebrow">TRAVEL GUIDE</div><h2 data-i18n="guides">ڕێنمایی گەشت</h2><p>ڕێنمایی پێش گەشت، شاخ، شۆفێری و فریاکەوتن.</p></div></div><div class="guideGrid" id="guideGrid"></div></div></section>
-<section class="section alt" id="alertsSection"><div class="wrap"><div class="head"><div><div class="eyebrow">ALERTS</div><h2 data-i18n="alertsTitle">ئاگادارییەکانی گەشت</h2><p>ئاگادارییەکان لە data/alerts.json ـەوە دەخوێندرێنەوە.</p></div></div><div class="alerts" id="alerts"></div></div></section>
-<section class="section" id="savedSection"><div class="wrap"><div class="head"><div><div class="eyebrow">SAVED</div><h2 data-i18n="savedTitle">شوێنە پاشەکەوتکراوەکان</h2><p>Favorites بە localStorage هەڵدەگیرێن؛ database پێویست نییە.</p></div></div><div class="cityList" id="saved"></div></div></section>
+<section class="section" id="cities"><div class="wrap"><div class="head"><div><div class="eyebrow">CITIES</div><h2 data-i18n="citiesTitle">شارەکانی کوردستان</h2><p data-i18n="citiesIntro">شارەکان بە پارێزگا، کوردینات و زانیاریی کورت.</p></div></div><div class="cityGrid" id="cityGrid"></div></div></section>
+<section class="section alt" id="districts"><div class="wrap"><div class="head"><div><div class="eyebrow">ADMIN AREAS</div><h2 data-i18n="districtsTitle">قەزا و ناوچەکان</h2><p data-i18n="districtsIntro">داتای قەزاکان لە GitHub ـەوە دەخوێندرێتەوە و دەتوانیت زیاد و نوێیان بکەیت.</p></div></div><div class="districtToolbar"><input id="districtSearch" oninput="filterDistricts()" data-i18n-placeholder="searchDistrict" placeholder="گەڕان لە قەزاکان"><span id="districtResultCount"></span></div><div class="districtList" id="districtGrid"></div></div></section>
 
-<section class="section alt" id="githubGuide"><div class="wrap"><div class="featureGrid"><div class="feature"><div class="eyebrow">GITHUB DATA</div><h2 data-i18n="howToAdd">چۆن شوێن زیاد بکەیت</h2><p class="muted">data/places.json بکەرەوە و object ـێکی نوێ زیاد بکە. بۆ هەر شوێنێک دەتوانیت تا ٥ وێنە لە assets/ دابنێیت.</p><a class="btn primary" target="_blank" rel="noopener" href="https://github.com/kurdhack004-png/kurdhack004-png.github.io/tree/main/data" data-i18n="addOnGithub">زیادکردن لە GitHub</a></div>
-<pre class="code">{
-  "id":"new-place",
-  "type":"nature",
-  "city":"erbil",
-  "district":"shaqlawa",
-  "lat":36.40,"lng":44.32,
-  "images":["assets/places/new-place/1.jpg","assets/places/new-place/2.jpg"],
-  "name":{"kr":"ناوی کوردی","ar":"الاسم العربي","en":"English name"},
-  "short":{"kr":"زانیاری کورت","ar":"وصف مختصر","en":"Short description"}
+<section class="section" id="guide"><div class="wrap"><div class="head"><div><div class="eyebrow">TRAVEL GUIDE</div><h2 data-i18n="guides">ڕێنمایی گەشت</h2><p data-i18n="guidesIntro">پێش گەشت، شاخ، شۆفێری و فریاکەوتن.</p></div></div><div class="guideGrid" id="guideGrid"></div></div></section>
+<section class="section alt" id="alertsSection"><div class="wrap"><div class="head"><div><div class="eyebrow">TRAVEL ALERTS</div><h2 data-i18n="alertsTitle">ئاگادارییەکانی گەشت</h2><p data-i18n="alertsIntro">ئەم بەشە بۆ داتای ڕاستەوخۆی کەش و هەوا و ڕێگا ئامادەیە.</p></div></div><div class="alerts" id="alerts"></div></div></section>
+
+<section class="section" id="savedSection"><div class="wrap"><div class="head"><div><div class="eyebrow">SAVED</div><h2 data-i18n="savedTitle">شوێنە پاشەکەوتکراوەکان</h2><p data-i18n="savedIntro">پاشەکەوتەکان لە مۆبایلەکەتدا هەڵدەگیرێن؛ database پێویست نییە.</p></div></div><div class="cityList" id="saved"></div></div></section>
+
+<section class="section alt" id="githubGuide"><div class="wrap"><div class="featureGrid"><div class="feature"><div class="eyebrow">GITHUB DATA</div><h2 data-i18n="howToAdd">چۆن شوێن زیاد بکەیت</h2><p class="muted" data-i18n="githubIntro">داتاکە لە JSON ـە. تۆ دەتوانیت شوێن، شار، قەزا، ڕێنمایی و ئاگاداری لە GitHub زیاد بکەیت.</p><div class="featureButtons"><a class="btn primary" target="_blank" rel="noopener" href="https://github.com/kurdhack004-png/kurdhack004-png.github.io/tree/main/data" data-i18n="addOnGithub">زیادکردن لە GitHub</a><a class="btn ghost" target="_blank" rel="noopener" href="https://github.com/kurdhack004-png/kurdhack004-png.github.io" data-i18n="github">GitHub</a></div></div><pre class="code">{
+  "id": "new-place",
+  "type": "nature",
+  "city": "erbil",
+  "district": "shaqlawa",
+  "lat": 36.40,
+  "lng": 44.32,
+  "rating": 4.8,
+  "images": [
+    "assets/places/new-place/1.jpg",
+    "assets/places/new-place/2.jpg"
+  ],
+  "name": {"kr":"ناوی کوردی","ar":"الاسم العربي","en":"English name"},
+  "short": {"kr":"زانیاری","ar":"وصف","en":"Description"}
 }</pre></div></div></section>
 </main>
 
-<footer class="footer"><div class="wrap"><div class="footerGrid"><div><div class="brand"><span class="brandMark">✦</span><span>Kurdistan Tourism</span></div><p>وێبسایتی گەشتیاری mobile-first بە داتای GitHub.</p></div><div><h4 data-i18n="places">شوێنەکان</h4><a href="#places">Explore</a><a href="#mapSection" data-i18n="map">نەخشە</a><a href="#cities" data-i18n="cities">شارەکان</a></div><div><h4 data-i18n="guide">ڕێنمایی</h4><a href="#guide">Guide</a><a href="#alertsSection" data-i18n="alerts">ئاگاداری</a><a href="#savedSection" data-i18n="favorites">پاشەکەوتکراو</a></div><div><h4>GitHub</h4><a target="_blank" rel="noopener" href="https://github.com/kurdhack004-png/kurdhack004-png.github.io">Website GitHub</a><a target="_blank" rel="noopener" href="https://github.com/kurdhack004-png/kurdistan-tourism">Main Project</a></div></div><div class="copy"><span>© 2026 Kurdistan Tourism</span><span>KR / AR / EN · GitHub data driven</span></div></div></footer>
-<nav class="bottomNav"><a href="#"><b>🏠</b><span data-i18n="home">سەرەتا</span></a><a href="#places"><b>🧭</b><span data-i18n="places">شوێن</span></a><a href="#mapSection"><b>🗺️</b><span data-i18n="map">نەخشە</span></a><a href="#guide"><b>🧭</b><span data-i18n="guide">ڕێنمایی</span></a><a href="#savedSection"><b>♥</b><span data-i18n="favorites">پاشەکەوتکراو</span></a></nav>
+<footer class="footer"><div class="wrap"><div class="footerGrid"><div><div class="brand"><span class="brandMark">✦</span><span>Kurdistan Tourism</span></div><p data-i18n="footerText">پلاتفۆرمێکی مۆبایل-فیرست بۆ دۆزینەوەی کوردستان.</p></div><div><h4 data-i18n="places">شوێنەکان</h4><a href="#places" data-i18n="explore">گەڕان</a><a href="#mapSection" data-i18n="map">نەخشە</a><a href="#cities" data-i18n="cities">شارەکان</a></div><div><h4 data-i18n="guide">ڕێنمایی</h4><a href="#guide" data-i18n="guides">ڕێنمایی</a><a href="#alertsSection" data-i18n="alerts">ئاگاداری</a><a href="#savedSection" data-i18n="favorites">پاشەکەوتکراو</a></div><div><h4>GitHub</h4><a target="_blank" rel="noopener" href="https://github.com/kurdhack004-png/kurdhack004-png.github.io">Website GitHub</a><a target="_blank" rel="noopener" href="https://github.com/kurdhack004-png/kurdistan-tourism">Main Project</a></div></div><div class="copy"><span>© 2026 Kurdistan Tourism</span><span>KR / AR / EN · Mobile First · GitHub Data</span></div></div></footer>
+<nav class="bottomNav"><a href="#top"><b>⌂</b><span data-i18n="home">سەرەتا</span></a><a href="#places"><b>⌕</b><span data-i18n="places">شوێن</span></a><a href="#mapSection"><b>⌖</b><span data-i18n="map">نەخشە</span></a><a href="#guide"><b>♢</b><span data-i18n="guide">ڕێنمایی</span></a><a href="#savedSection"><b>♥</b><span data-i18n="favorites">پاشەکەوت</span></a></nav>
 <div class="modal" id="modal"><div class="modalBox" id="modalContent"></div></div>
-<script src="js/app.js"></script></body></html>
+<script src="js/app.js"></script>
+</body>
+</html>
