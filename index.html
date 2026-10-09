@@ -1,149 +1,175 @@
 <!doctype html>
-<html lang="ckb" dir="rtl">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07110e">
-<meta name="description" content="Kurdistan Tourism — discover places, cities, districts, nature, heritage, maps and travel guides across Kurdistan.">\n<meta name="robots" content="index,follow">\n<meta property="og:title" content="Kurdistan Tourism — Discover Kurdistan">\n<meta property="og:description" content="Discover Kurdistan with places, cities, maps, guides and navigation.">\n<meta property="og:type" content="website">\n<meta property="og:url" content="https://kurdhack004-png.github.io/">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="assets/icon.svg">
-<link rel="stylesheet" href="assets/app.css">
-<title>Kurdistan Tourism — کوردستان بدۆزەرەوە</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="GeoDesk RS — personal remote sensing, GIS and environmental analysis workspace.">
+<title>GeoDesk RS — Remote Sensing Studio</title>
+<link rel="preconnect" href="https://unpkg.com"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css">
+<style>
+:root{--bg:#f5f7fb;--surface:#fff;--surface2:#f8fafc;--line:#e3e8f0;--text:#172033;--muted:#6b778c;--green:#16845b;--green2:#e8f7ef;--blue:#2864d7;--blue2:#edf4ff;--amber:#9a6700;--amber2:#fff6dc;--shadow:0 8px 28px rgba(26,42,68,.055);--radius:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--text);border-radius:10px;padding:9px 12px;transition:.16s ease}button:hover{border-color:#aab9cd;background:#f8fafc}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #b9d5ff;outline-offset:1px}button.primary{background:var(--green);border-color:var(--green);color:#fff;font-weight:700}button.primary:hover{background:#116e4b}button.soft{background:var(--green2);border-color:#cdebd9;color:#126b49}button:disabled{opacity:.45;cursor:not-allowed}
+.top{position:sticky;top:0;z-index:1000;min-height:72px;padding:12px clamp(14px,3vw,32px);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.brand{display:flex;gap:12px;align-items:center}.logo{width:43px;height:43px;border-radius:13px;background:linear-gradient(145deg,#17885e,#4fae82);display:grid;place-items:center;color:#fff;font-size:23px;font-weight:850;box-shadow:0 5px 14px #16845b2b}.brand h1{font-size:16px;line-height:1.2;margin:0;letter-spacing:.6px}.brand h1 span{color:var(--green)}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:4px}.topright{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.status{display:flex;align-items:center;gap:7px;border:1px solid #f0dfaa;background:var(--amber2);color:#805b0b;border-radius:99px;padding:7px 11px;font-size:11px;font-weight:650}.status i{width:7px;height:7px;background:#d89a18;border-radius:50%}.toplink{font-size:12px;color:var(--muted);text-decoration:none;padding:8px}.shell{display:grid;grid-template-columns:252px minmax(0,1fr);max-width:1800px;margin:auto;min-height:calc(100vh - 72px)}aside{background:#fff;border-right:1px solid var(--line);padding:18px 14px;overflow:auto}.sidecap{font-size:10px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:#94a0b2;margin:17px 10px 9px}.sidecap:first-child{margin-top:2px}.nav{display:grid;gap:4px}.nav button{display:flex;align-items:center;gap:11px;text-align:left;width:100%;border:1px solid transparent;background:transparent;color:#526077;padding:10px 11px;font-weight:550}.nav button .ico{width:23px;height:23px;display:grid;place-items:center;border-radius:7px;background:#f1f4f8;color:#64748b;font-size:13px}.nav button.active{background:var(--green2);border-color:#d4efdf;color:#116b49;font-weight:750}.nav button.active .ico{background:#d3f0df;color:#116b49}.sidebox{border:1px solid var(--line);border-radius:13px;padding:12px;margin-top:12px;background:var(--surface2)}.sidebox h3{font-size:12px;margin:0 0 8px}.control{display:flex;flex-direction:column;gap:5px;margin:10px 0}.control label,.fieldlabel{font-size:11px;font-weight:650;color:var(--muted)}input,select,textarea{width:100%;min-width:0;border:1px solid #dce3ec;background:#fff;color:var(--text);border-radius:9px;padding:10px}input[type=checkbox]{width:auto;accent-color:var(--green)}input[type=date]{font-size:12px}.small-note{font-size:11px;color:var(--muted);line-height:1.55}.toolbar{display:flex;gap:7px;flex-wrap:wrap}.toolbar button{font-size:12px}.main{min-width:0;padding:clamp(14px,2.2vw,28px);display:flex;flex-direction:column;gap:17px}.hero{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}.eyebrow{color:var(--green);font-size:10px;letter-spacing:1.5px;font-weight:850;text-transform:uppercase}.hero h2{font-size:clamp(23px,3vw,31px);letter-spacing:-.8px;line-height:1.2;margin:5px 0 8px}.hero p{margin:0;color:var(--muted);max-width:650px}.heroactions{display:flex;gap:8px;flex-wrap:wrap;padding-top:10px}.notice{display:flex;gap:11px;align-items:flex-start;background:#fff9e8;border:1px solid #f1e3b8;border-radius:12px;padding:12px 14px;color:#775b1a;font-size:12px}.notice .noticeicon{font-size:17px}.notice strong{display:block;margin-bottom:2px}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.metric,.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);min-width:0}.metric{padding:15px;position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:55px;height:55px;border-radius:50%;right:-18px;top:-20px;background:var(--green2)}.metric .mlabel{font-size:11px;color:var(--muted);font-weight:600;position:relative;z-index:1}.metric strong{display:block;font-size:25px;letter-spacing:-.7px;margin:5px 0 2px}.metric small{font-size:10px;color:var(--muted)}.metric .metricicon{float:right;color:var(--green);font-size:17px;position:relative;z-index:1}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 17px 0}.sectionhead h3{font-size:14px;margin:0}.sectionhead p{font-size:11px;color:var(--muted);margin:3px 0 0}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:14px}.mapcard{overflow:hidden}.maptoolbar{display:flex;gap:7px;flex-wrap:wrap;padding:12px 16px 13px}.maptoolbar select{width:auto;min-width:140px;padding:8px;font-size:12px}.mapwrap{height:460px;position:relative;border-top:1px solid var(--line);background:#eef2f5}#map{height:100%;width:100%}.maptag{position:absolute;z-index:500;top:12px;left:12px;background:#fff;box-shadow:0 3px 14px #17203316;border:1px solid #e1e7ef;padding:7px 10px;border-radius:9px;font-size:10px;color:#445169;font-weight:700}.mapbottom{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 15px;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}.rightcol{display:flex;flex-direction:column;gap:14px}.cardbody{padding:13px 16px 16px}.layerrow{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #eff2f6;font-size:12px}.layerrow:last-of-type{border-bottom:0}.layername{display:flex;align-items:center;gap:8px}.dot{width:9px;height:9px;border-radius:3px;background:var(--green)}.dot.blue{background:var(--blue)}.dot.amber{background:#d69b26}.card h3{font-size:14px}.divider{height:1px;background:var(--line);margin:12px 0}.filelist{margin-top:8px}.fileline{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #eff2f6;font-size:11px}.fileline:last-child{border-bottom:0}.fileline button{padding:5px 7px;font-size:10px}.pill{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:var(--green);background:var(--green2);border:1px solid #d4efdf;border-radius:99px;padding:4px 8px}.twocol{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:14px}.analysisgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.analysisgrid .control{margin:4px 0}.dategrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.codearea{min-height:300px;resize:vertical;width:100%;border-radius:10px;background:#fbfcfe;border:1px solid #dce3ec;padding:13px;color:#1d3557;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:2}.output{white-space:pre-wrap;background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:11px;color:#536176;font:11px/1.6 ui-monospace,monospace;min-height:48px}.tabsection{scroll-margin-top:95px}.quickchips{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}.chip{font-size:10px;padding:5px 8px;border:1px solid var(--line);background:#fff;border-radius:99px;color:#5d6a7e}.footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#8994a5;font-size:10px;padding:5px 2px 12px}.hidden{display:none!important}.navhint{margin-top:14px;padding:12px;border-radius:12px;background:#f6f9fc;border:1px solid var(--line);font-size:11px;color:var(--muted)}.navhint strong{display:block;color:#354258;margin-bottom:3px}
+@media(max-width:1120px){.shell{grid-template-columns:215px minmax(0,1fr)}.workspace{grid-template-columns:minmax(0,1fr)}.rightcol{display:grid;grid-template-columns:1fr 1fr}.mapwrap{height:400px}.twocol{grid-template-columns:1fr}}
+@media(max-width:760px){.shell{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line);padding:12px}.sidecap{margin:10px 8px 7px}.nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.nav button{font-size:11px;padding:8px 6px;justify-content:flex-start;gap:6px}.nav button .ico{width:20px;height:20px;flex-shrink:0}.sidebox{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.sidebox h3,.sidebox .small-note{grid-column:1/-1}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.heroactions{padding-top:0}.main{padding:13px}.rightcol{grid-template-columns:1fr 1fr}.mapwrap{height:360px}.sectionhead{padding:13px 13px 0}.cardbody{padding:12px 13px 14px}}
+@media(max-width:480px){.top{padding:10px 12px}.topright{width:100%;justify-content:space-between}.status{font-size:10px}.brand h1{font-size:14px}.brand small{font-size:10px}.nav{grid-template-columns:repeat(2,minmax(0,1fr))}.sidebox{grid-template-columns:1fr}.sidebox h3,.sidebox .small-note{grid-column:auto}.metrics{gap:8px}.metric{padding:12px}.metric strong{font-size:22px}.rightcol{grid-template-columns:1fr}.mapwrap{height:330px}.maptoolbar select{flex:1;min-width:0}.hero h2{font-size:24px}.analysisgrid{grid-template-columns:1fr}.heroactions button{flex:1}.codearea{min-height:250px}}
+</style>
 </head>
 <body>
-<div class="topbar"><div class="wrap topin"><span>کوردستان • گەشت • سروشت • مێژوو</span><span>Mobile First · GitHub Data · KR / AR / EN</span></div></div>
-
-<header class="nav">
-  <div class="wrap navin">
-    <a class="brand" href="#top" aria-label="Kurdistan Tourism"><span class="brandMark">✦</span><span>Kurdistan Tourism</span></a>
-    <nav class="navlinks">
-      <a href="#places" data-i18n="places">شوێنەکان</a>
-      <a href="#cities" data-i18n="cities">شارەکان</a>
-      <a href="#mapSection" data-i18n="map">نەخشە</a>
-      <a href="#guide" data-i18n="guide">ڕێنمایی</a>
-      <a href="#alertsSection" data-i18n="alerts">ئاگاداری</a>
-    </nav>
-    <div class="navtools">
-      <label class="language" aria-label="Language"><span>🌐</span><select id="langSelect" onchange="setLang(this.value)"><option value="kr">KR</option><option value="ar">AR</option><option value="en">EN</option></select></label>
-      <button class="iconbtn" aria-label="Search" onclick="focusSearch()">⌕</button>
-      <button class="menuBtn" aria-label="Menu" onclick="toggleMobileMenu()">☰</button>
-    </div>
-  </div>
-  <div id="mobileMenu" class="mobileMenu">
-    <a href="#places" data-i18n="places">شوێنەکان</a><a href="#cities" data-i18n="cities">شارەکان</a><a href="#mapSection" data-i18n="map">نەخشە</a><a href="#guide" data-i18n="guide">ڕێنمایی</a><a href="#alertsSection" data-i18n="alerts">ئاگاداری</a>
-  </div>
+<header class="top">
+ <div class="brand"><div class="logo">G</div><div><h1>GEODESK <span>RS</span></h1><small>Remote Sensing · GIS · Environmental Intelligence</small></div></div>
+ <div class="topright"><a class="toplink" href="https://github.com/kurdhack004-png/kurdhack004-png.github.io" target="_blank" rel="noreferrer">Project repository ↗</a><div class="status"><i></i> Earth Engine connection pending</div></div>
 </header>
-
-<main id="top">
-<section class="hero">
-  <div class="heroBg"></div><div class="heroGlow"></div>
-  <div class="wrap heroLayout">
-    <div class="heroContent">
-      <div class="eyebrow">DISCOVER KURDISTAN</div>
-      <h1><span data-i18n="discover">کوردستان بدۆزەرەوە</span><br><strong data-i18n="heroSecond">بە ئاسانی.</strong></h1>
-      <p class="heroLead" data-i18n="heroText">شوێنە گەشتیارییەکان، شارەکان، قەزاکان، سروشت، میرات و ڕێنمایی گەشت لە یەک وێبسایتی مۆبایل-فیرست.</p>
-      <div class="actions"><a class="btn primary" href="#places" data-i18n="explore">شوێنەکان ببینە</a><button class="btn ghost" onclick="locateUser()">📍 <span data-i18n="myLocation">شوێنی من</span></button><a class="btn ghost" href="#mapSection" data-i18n="map">نەخشە</a></div>
-      <div class="searchBox"><span>⌕</span><input id="search" data-i18n-placeholder="search" placeholder="گەڕان بۆ شوێن، شار یان قەزا" autocomplete="off" oninput="liveSearch()" onkeydown="if(event.key==='Enter')doSearch()"><button onclick="doSearch()" data-i18n="search">گەڕان</button></div>
-      <div id="searchHint" class="searchHint"></div>
-      <div class="quick"><button onclick="setCategory('historic')">🏛️ <span data-i18n="historic">مێژوویی</span></button><button onclick="setCategory('nature')">🌿 <span data-i18n="nature">سروشت</span></button><button onclick="setCategory('mountain')">⛰️ <span data-i18n="mountain">شاخ</span></button><button onclick="setCategory('water')">💧 <span data-i18n="water">ئاوشار</span></button><button onclick="setCategory('lake')">🏞️ <span data-i18n="lake">دەریاچە</span></button></div>
-      <div class="heroStats"><div><b id="placeCount">0+</b><span data-i18n="places">شوێنەکان</span></div><div><b id="cityCount">0+</b><span data-i18n="cities">شارەکان</span></div><div><b id="districtCount">0+</b><span data-i18n="districts">قەزاکان</span></div><div><b id="savedCount">0</b><span data-i18n="favorites">پاشەکەوتکراو</span></div></div>
-      <div id="appError" class="appError"></div>
-    </div>
-    <div class="heroPanel">
-      <div class="heroPanelTop"><span>✦</span><span data-i18n="trip">پلانی گەشت</span></div>
-      <div class="routeLine"><span>📍</span><div><small data-i18n="start">دەستپێک</small><b data-i18n="yourLocation">شوێنی تۆ</b></div></div>
-      <div class="routeLine"><span>◎</span><div><small data-i18n="destination">مەبەست</small><b data-i18n="choosePlace">شوێنێک هەڵبژێرە</b></div></div>
-      <button class="panelAction" onclick="locateUser();focusSearch()" data-i18n="startExploring">دەست بە گەڕان بکە →</button>
-      <div class="panelFoot"><span>⚡ <span data-i18n="fast">خێرا</span></span><span>🗺️ <span data-i18n="mapReady">نەخشە ئامادەیە</span></span><span>♥ <span data-i18n="offlineSaved">پاشەکەوتی ناوخۆیی</span></span></div>
-    </div>
+<div class="shell">
+<aside>
+ <div class="sidecap">Workspace</div>
+ <nav class="nav" aria-label="Main navigation">
+  <button class="active" data-target="overview"><span class="ico">▦</span> Overview</button>
+  <button data-target="mapsection"><span class="ico">⌖</span> Map & ROI</button>
+  <button data-target="datasect"><span class="ico">▤</span> Data manager</button>
+  <button data-target="analysis"><span class="ico">◈</span> Analysis lab</button>
+  <button data-target="codepanel"><span class="ico">⌘</span> Code studio</button>
+ </nav>
+ <div class="sidecap">Project settings</div>
+ <div class="sidebox">
+  <h3>Current project</h3>
+  <div class="control"><label for="projectName">Project name</label><input id="projectName" value="Kurdistan Environmental Analysis"></div>
+  <div class="control"><label for="region">Study area</label><select id="region"><option value="kurdistan">Kurdistan Region</option><option value="erbil">Erbil</option><option value="sulaymaniyah">Sulaymaniyah</option><option value="duhok">Duhok</option><option value="halabja">Halabja</option><option value="custom">Custom ROI</option></select></div>
+  <div class="toolbar"><button id="saveProject">Export project</button><button id="openProject">Open project</button><input id="projectFile" type="file" accept=".json" class="hidden"></div>
+  <p class="small-note">Project files are stored on your device only when you export them. No cloud database is connected.</p>
+ </div>
+ <div class="navhint"><strong>Research workspace</strong>Organize study areas, import vector data, sketch ROIs and prepare analysis scripts in one place.</div>
+ <div class="sidecap">Data safety</div><p class="small-note" style="padding:0 9px">Never place passwords, API tokens, OAuth secrets or private keys in this page or in a public repository.</p>
+</aside>
+<main class="main">
+ <section class="hero tabsection" id="overview">
+  <div><div class="eyebrow">Personal geospatial workbench</div><h2>Remote Sensing Studio</h2><p>Explore your study area, manage spatial files and prepare reproducible environmental analyses — with a clean, light workspace.</p><div class="quickchips"><span class="chip">GIS workspace</span><span class="chip">ROI tools</span><span class="chip">GeoJSON & CSV</span><span class="chip">Earth Engine templates</span></div></div>
+  <div class="heroactions"><button id="fitRegion">⌖ Focus study area</button><button id="exportROI" class="primary">↓ Export ROI GeoJSON</button></div>
+ </section>
+ <div class="notice"><span class="noticeicon">ⓘ</span><div><strong>Connection status: local tools are ready; satellite processing is not connected.</strong>Mapping, ROI drawing, spatial-file import and project export work in this browser. Real NDVI/LST/classification processing needs authenticated Earth Engine access and validated scripts. This dashboard does not fabricate satellite results.</div></div>
+ <section class="metrics" aria-label="Workspace summary">
+  <div class="metric"><span class="metricicon">⌗</span><div class="mlabel">Spatial layers</div><strong id="layerCount">0</strong><small>Drawn ROI and imported layers</small></div>
+  <div class="metric"><span class="metricicon">⌖</span><div class="mlabel">ROI area</div><strong id="roiArea">—</strong><small>Approximate square kilometres</small></div>
+  <div class="metric"><span class="metricicon">▤</span><div class="mlabel">Imported files</div><strong id="fileCount">0</strong><small>Current browser session</small></div>
+  <div class="metric"><span class="metricicon">◉</span><div class="mlabel">Processing engine</div><strong style="font-size:17px">Pending</strong><small>Earth Engine authentication</small></div>
+ </section>
+ <section class="workspace tabsection" id="mapsection">
+  <div class="card mapcard">
+   <div class="sectionhead"><div><h3>Interactive map</h3><p>Navigate, draw an area of interest and inspect imported spatial data.</p></div><span class="pill">WGS84 · EPSG:4326</span></div>
+   <div class="maptoolbar"><select id="basemap" aria-label="Basemap"><option value="osm">Street map</option><option value="topo">Topographic</option><option value="imagery">Satellite imagery</option></select><button id="drawHint">How to draw ROI</button><button id="clearROI">Clear ROI</button></div>
+   <div class="mapwrap"><div class="maptag">MAP CANVAS · LIVE BASEMAP</div><div id="map" aria-label="Interactive GIS map"></div></div>
+   <div class="mapbottom"><span>Basemap tiles require an internet connection.</span><span>Area is approximate and intended for exploration.</span></div>
   </div>
-</section>
-
-<section class="section discovery" id="discoverHub">
-  <div class="wrap">
-    <div class="sectionIntro">
-      <div>
-        <div class="eyebrow">DISCOVER HUB</div>
-        <h2>کوردستان بە چوار ڕێگا بدۆزەرەوە</h2>
-        <p>هەر بەشێک بۆ جۆرێک لە گەشت دانراوە؛ لە مێژوو و شارەکانەوە تا سروشت و پلانی ڕۆژەکەت.</p>
-      </div>
-      <div class="livePill"><span></span> داتا بە شێوەی بەش‌بەش</div>
-    </div>
-    <div class="discoveryGrid">
-      <a class="discoveryCard discoveryHero" href="#places">
-        <div class="discoveryIcon">🏛️</div>
-        <div><span>01 · Explore</span><h3>شوێن و مێژوو</h3><p>قەڵا، شوێنەوار، مۆزەخانە و میراثی کوردستان.</p></div>
-        <b class="arrow">↗</b>
-      </a>
-      <a class="discoveryCard" href="#cities">
-        <div class="discoveryIcon">🏙️</div>
-        <div><span>02 · Cities</span><h3>شار و قەزا</h3><p>شارەکان، ناوچەکان و زانیارییە سەرەکییەکان.</p></div>
-        <b class="arrow">↗</b>
-      </a>
-      <a class="discoveryCard" href="#mapSection">
-        <div class="discoveryIcon">🗺️</div>
-        <div><span>03 · Navigate</span><h3>نەخشە و ڕێگا</h3><p>نزیکترین شوێن بدۆزەرەوە و بە Google Maps یان Waze بڕۆ.</p></div>
-        <b class="arrow">↗</b>
-      </a>
-      <a class="discoveryCard" href="#guide">
-        <div class="discoveryIcon">🥾</div>
-        <div><span>04 · Outdoor</span><h3>سروشت و گەشت</h3><p>شاخ، ئاوشار، دەریاچە و ڕێنمایییەکانی سەلامەتی.</p></div>
-        <b class="arrow">↗</b>
-      </a>
-    </div>
-    <div class="dataRibbon">
-      <div><strong>LIVE DATA</strong><span>شوێنەکان</span><b id="ribbonPlaces">0</b></div>
-      <div><strong>REGIONS</strong><span>شارەکان</span><b id="ribbonCities">0</b></div>
-      <div><strong>AREAS</strong><span>قەزاکان</span><b id="ribbonDistricts">0</b></div>
-      <div><strong>SAVED</strong><span>پاشەکەوتکراو</span><b id="ribbonSaved">0</b></div>
-    </div>
+  <div class="rightcol">
+   <section class="card"><div class="sectionhead"><div><h3>Layer controls</h3><p>Toggle visibility on the map.</p></div></div><div class="cardbody">
+    <label class="layerrow"><span class="layername"><i class="dot"></i>Study area / ROI</span><input id="roiToggle" type="checkbox" checked></label>
+    <label class="layerrow"><span class="layername"><i class="dot blue"></i>Imported vectors</span><input id="vectorsToggle" type="checkbox" checked></label>
+    <label class="layerrow"><span class="layername"><i class="dot amber"></i>Reference points</span><input id="pointsToggle" type="checkbox"></label>
+    <div class="control"><label for="quickRegion">Quick map location</label><select id="quickRegion"><option value="kurdistan">Kurdistan Region</option><option value="erbil">Erbil</option><option value="sulaymaniyah">Sulaymaniyah</option><option value="duhok">Duhok</option><option value="halabja">Halabja</option></select></div>
+   </div></section>
+   <section class="card tabsection" id="datasect"><div class="sectionhead"><div><h3>Data manager</h3><p>Import local spatial files.</p></div><span class="pill">Local</span></div><div class="cardbody">
+    <div class="control"><label for="dataUpload">GeoJSON, JSON or CSV points</label><input id="dataUpload" type="file" accept=".geojson,.json,.csv,.txt"></div>
+    <p class="small-note">CSV files need longitude/lon and latitude/lat columns. GeoJSON should use WGS84 coordinates.</p>
+    <div class="divider"></div><div id="fileList" class="filelist"><p class="small-note">No files imported yet.</p></div>
+    <button id="clearLayers" style="width:100%;margin-top:10px">Remove all imported layers</button>
+   </div></section>
   </div>
-</section>
+ </section>
+ <section class="twocol">
+  <div class="card tabsection" id="analysis"><div class="sectionhead"><div><h3>Analysis lab</h3><p>Build a starting script for your research question.</p></div><span class="pill">Templates</span></div><div class="cardbody">
+   <div class="control"><label for="analysisType">Analysis type</label><select id="analysisType"><option value="ndvi">NDVI · vegetation condition</option><option value="ndwi">NDWI · surface water</option><option value="ndmi">NDMI · vegetation moisture</option><option value="nbr">NBR · burn severity</option><option value="lst">LST · land surface temperature</option><option value="lulc">LULC · land cover</option><option value="terrain">DEM · slope and aspect</option><option value="drought">Drought monitoring</option></select></div>
+   <div class="control"><label for="dataset">Preferred dataset</label><select id="dataset"><option value="COPERNICUS/S2_SR_HARMONIZED">Sentinel-2 Surface Reflectance</option><option value="COPERNICUS/S1_GRD">Sentinel-1 GRD</option><option value="LANDSAT/LC09/C02/T1_L2">Landsat 9 Collection 2</option><option value="MODIS/061/MOD13Q1">MODIS vegetation indices</option><option value="USGS/SRTMGL1_003">NASA SRTM DEM</option><option value="UCSB-CHG/CHIRPS/DAILY">CHIRPS precipitation</option><option value="ECMWF/ERA5_LAND/DAILY_AGGR">ERA5-Land</option></select></div>
+   <div class="control"><label>Analysis period</label><div class="dategrid"><input id="dateStart" type="date" value="2024-01-01" aria-label="Start date"><input id="dateEnd" type="date" value="2024-12-31" aria-label="End date"></div></div>
+   <div class="control"><label for="cloudCover">Maximum cloud cover: <strong id="cloudLabel">20%</strong></label><input id="cloudCover" type="range" min="0" max="100" value="20"></div>
+   <button id="prepareAnalysis" class="primary" style="width:100%">Generate analysis template ↗</button>
+   <p class="small-note">Templates require review before use. Dataset bands, quality masks, scaling, dates and geometry vary by analysis.</p>
+  </div></div>
+  <div class="card tabsection" id="codepanel"><div class="sectionhead"><div><h3>Code studio</h3><p>Prepare and export JavaScript for Earth Engine.</p></div><span class="pill">JavaScript</span></div><div class="cardbody">
+   <div class="toolbar" style="margin-bottom:10px"><button id="loadTemplate">Reset template</button><button id="saveCode">Save locally</button><button id="downloadCode" class="soft">Download .js</button><button id="runCode">Check brackets</button></div>
+   <textarea id="code" class="codearea" spellcheck="false" aria-label="JavaScript code editor">// GeoDesk RS — Earth Engine starter template
+// Review the dataset, ROI, QA masking and scaling before use.
+var roi = ee.Geometry.Rectangle([43.0, 35.0, 46.5, 37.5]);
+var startDate = '2024-01-01';
+var endDate = '2024-12-31';
 
-<section class="section" id="places">
-  <div class="wrap">
-    <div class="head"><div><div class="eyebrow">EXPLORE</div><h2 data-i18n="places">شوێنەکان</h2><p data-i18n="placesIntro">شوێنەکان بە جۆر، شار، دووری و گەڕان بدۆزەرەوە.</p></div><div class="headTools"><select id="sort" class="sort" onchange="sortPlaces()"><option value="default" data-i18n="default">بنەڕەت</option><option value="distance" data-i18n="sortDistance">نزیکترین یەکەم</option></select><button class="viewBtn active" id="gridViewBtn" onclick="setView('grid')">▦</button><button class="viewBtn" id="listViewBtn" onclick="setView('list')">☷</button></div></div>
-    <div class="filters"><button class="chip active" data-cat="all" onclick="setCategory('all')" data-i18n="all">هەموو</button><button class="chip" data-cat="historic" onclick="setCategory('historic')" data-i18n="historic">مێژوویی</button><button class="chip" data-cat="nature" onclick="setCategory('nature')" data-i18n="nature">سروشت</button><button class="chip" data-cat="mountain" onclick="setCategory('mountain')" data-i18n="mountain">شاخ</button><button class="chip" data-cat="water" onclick="setCategory('water')" data-i18n="water">ئاوشار</button><button class="chip" data-cat="lake" onclick="setCategory('lake')" data-i18n="lake">دەریاچە</button><button class="chip" data-cat="heritage" onclick="setCategory('heritage')" data-i18n="heritage">میرات</button><button class="chip" data-cat="cultural" onclick="setCategory('cultural')" data-i18n="cultural">کەلتووری</button></div>
-    <div class="advancedFilters"><label><span data-i18n="city">شار</span><select id="cityFilter" onchange="applyAdvancedFilters()"><option value="">هەموو</option></select></label><label><span data-i18n="district">قەزا</span><select id="districtFilter" onchange="applyAdvancedFilters()"><option value="">هەموو</option></select></label><button class="clearBtn" onclick="clearFilters()" data-i18n="clearFilters">پاککردنەوە</button></div>
-    <div class="grid" id="placeGrid"></div>
-  </div>
-</section>
+var collection = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
+  .filterBounds(roi)
+  .filterDate(startDate, endDate)
+  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20));
 
-<section class="section alt" id="mapSection">
-  <div class="wrap">
-    <div class="head"><div><div class="eyebrow">INTERACTIVE MAP</div><h2 data-i18n="mapAll">هەموو شوێنەکان لەسەر نەخشە</h2><p data-i18n="mapIntro">Marker ـەکان بکەوە بۆ وردەکاری و کردنەوەی Google Maps یان Waze.</p></div><button class="btn primary" onclick="locateUser()">📍 <span data-i18n="myLocation">شوێنی من</span></button></div>
-    <div class="mapShell"><div class="mapHeader"><div><b data-i18n="map">نەخشە</b><small> · <span id="locationText" data-i18n="locationWaiting">چاوەڕوانی شوێن...</span></small></div><div class="mapTools"><button class="miniBtn" onclick="fitAll()" data-i18n="showAll">هەموو پیشان بدە</button><button class="miniBtn" onclick="locateUser()">📍</button></div></div><div id="map" class="map"><div id="mapFallback" class="mapFallback"></div></div><div class="mapLegend"><span>🟢 <span data-i18n="tourismMarker">شوێنی گەشتیاری</span></span><span>📍 <span data-i18n="myLocation">شوێنی من</span></span><span>↗ Google Maps</span><span>↗ Waze</span></div></div>
-  </div>
-</section>
-
-<section class="section" id="cities"><div class="wrap"><div class="head"><div><div class="eyebrow">CITIES</div><h2 data-i18n="citiesTitle">شارەکانی کوردستان</h2><p data-i18n="citiesIntro">شارەکان بە پارێزگا، کوردینات و زانیاریی کورت.</p></div></div><div class="cityGrid" id="cityGrid"></div></div></section>
-<section class="section alt" id="districts"><div class="wrap"><div class="head"><div><div class="eyebrow">ADMIN AREAS</div><h2 data-i18n="districtsTitle">قەزا و ناوچەکان</h2><p data-i18n="districtsIntro">داتای قەزاکان لە GitHub ـەوە دەخوێندرێتەوە و دەتوانیت زیاد و نوێیان بکەیت.</p></div></div><div class="districtToolbar"><input id="districtSearch" oninput="filterDistricts()" data-i18n-placeholder="searchDistrict" placeholder="گەڕان لە قەزاکان"><span id="districtResultCount"></span></div><div class="districtList" id="districtGrid"></div></div></section>
-
-<section class="section" id="guide"><div class="wrap"><div class="head"><div><div class="eyebrow">TRAVEL GUIDE</div><h2 data-i18n="guides">ڕێنمایی گەشت</h2><p data-i18n="guidesIntro">پێش گەشت، شاخ، شۆفێری و فریاکەوتن.</p></div></div><div class="guideGrid" id="guideGrid"></div></div></section>
-<section class="section alt" id="alertsSection"><div class="wrap"><div class="head"><div><div class="eyebrow">TRAVEL ALERTS</div><h2 data-i18n="alertsTitle">ئاگادارییەکانی گەشت</h2><p data-i18n="alertsIntro">ئەم بەشە بۆ داتای ڕاستەوخۆی کەش و هەوا و ڕێگا ئامادەیە.</p></div></div><div class="alerts" id="alerts"></div></div></section>
-
-<section class="section" id="savedSection"><div class="wrap"><div class="head"><div><div class="eyebrow">SAVED</div><h2 data-i18n="savedTitle">شوێنە پاشەکەوتکراوەکان</h2><p data-i18n="savedIntro">پاشەکەوتەکان لە مۆبایلەکەتدا هەڵدەگیرێن؛ database پێویست نییە.</p></div></div><div class="cityList" id="saved"></div></div></section>
-
-<section class="section alt" id="githubGuide"><div class="wrap"><div class="featureGrid"><div class="feature"><div class="eyebrow">GITHUB DATA</div><h2 data-i18n="howToAdd">چۆن شوێن زیاد بکەیت</h2><p class="muted" data-i18n="githubIntro">داتاکە لە JSON ـە. تۆ دەتوانیت شوێن، شار، قەزا، ڕێنمایی و ئاگاداری لە GitHub زیاد بکەیت.</p><div class="featureButtons"><a class="btn primary" target="_blank" rel="noopener" href="https://github.com/kurdhack004-png/kurdhack004-png.github.io/tree/main/data" data-i18n="addOnGithub">زیادکردن لە GitHub</a><a class="btn ghost" target="_blank" rel="noopener" href="https://github.com/kurdhack004-png/kurdhack004-png.github.io" data-i18n="github">GitHub</a></div></div><pre class="code">{
-  "id": "new-place",
-  "type": "nature",
-  "city": "erbil",
-  "district": "shaqlawa",
-  "lat": 36.40,
-  "lng": 44.32,
-  "rating": 4.8,
-  "images": [
-    "assets/places/new-place/1.jpg",
-    "assets/places/new-place/2.jpg"
-  ],
-  "name": {"kr":"ناوی کوردی","ar":"الاسم العربي","en":"English name"},
-  "short": {"kr":"زانیاری","ar":"وصف","en":"Description"}
-}</pre></div></div></section>
+print('Candidate images:', collection.size());
+// Add validated cloud masking, index calculation and export.
+// This page does not execute Earth Engine requests.</textarea>
+   <div id="codeOutput" class="output" style="margin-top:10px">Editor ready. Bracket check is a basic helper, not a full JavaScript parser. Earth Engine code is not executed from this page.</div>
+  </div></div>
+ </section>
+ <section class="card"><div class="sectionhead"><div><h3>Activity & project log</h3><p>Recent local actions and workspace notes.</p></div><button id="clearLog">Clear log</button></div><div class="cardbody"><div id="log" class="output">[Ready] GeoDesk RS workspace initialized.\n[Info] Light interface enabled.\n[Pending] Earth Engine authentication and secure backend.</div></div></section>
+ <footer class="footer"><span>GeoDesk RS · Personal research workspace</span><span>White interface · Responsive layout · Do not commit secrets</span></footer>
 </main>
-
-<footer class="footer"><div class="wrap"><div class="footerGrid"><div><div class="brand"><span class="brandMark">✦</span><span>Kurdistan Tourism</span></div><p data-i18n="footerText">پلاتفۆرمێکی مۆبایل-فیرست بۆ دۆزینەوەی کوردستان.</p></div><div><h4 data-i18n="places">شوێنەکان</h4><a href="#places" data-i18n="explore">گەڕان</a><a href="#mapSection" data-i18n="map">نەخشە</a><a href="#cities" data-i18n="cities">شارەکان</a></div><div><h4 data-i18n="guide">ڕێنمایی</h4><a href="#guide" data-i18n="guides">ڕێنمایی</a><a href="#alertsSection" data-i18n="alerts">ئاگاداری</a><a href="#savedSection" data-i18n="favorites">پاشەکەوتکراو</a></div><div><h4>GitHub</h4><a target="_blank" rel="noopener" href="https://github.com/kurdhack004-png/kurdhack004-png.github.io">Website GitHub</a><a target="_blank" rel="noopener" href="https://github.com/kurdhack004-png/kurdistan-tourism">Main Project</a></div></div><div class="copy"><span>© 2026 Kurdistan Tourism</span><span>KR / AR / EN · Mobile First · GitHub Data</span></div></div></footer>
-<nav class="bottomNav"><a href="#top"><b>⌂</b><span data-i18n="home">سەرەتا</span></a><a href="#places"><b>⌕</b><span data-i18n="places">شوێن</span></a><a href="#mapSection"><b>⌖</b><span data-i18n="map">نەخشە</span></a><a href="#guide"><b>♢</b><span data-i18n="guide">ڕێنمایی</span></a><a href="#savedSection"><b>♥</b><span data-i18n="favorites">پاشەکەوت</span></a></nav>
-<div class="modal" id="modal"><div class="modalBox" id="modalContent"></div></div>
-<script src="js/app.js"></script>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const logLines=['[Ready] GeoDesk RS workspace initialized.','[Info] Light interface enabled.','[Pending] Earth Engine authentication and secure backend.'];
+function log(s){logLines.unshift('['+new Date().toLocaleTimeString()+'] '+s);$('log').textContent=logLines.slice(0,12).join('\n')}
+const map=L.map('map',{zoomControl:true}).setView([36.25,44.2],7);
+const bases={
+ osm:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:19}),
+ topo:L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{attribution:'© OpenTopoMap',maxZoom:17}),
+ imagery:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'Tiles © Esri',maxZoom:18})
+};
+let base=bases.osm.addTo(map),roiGroup=new L.FeatureGroup().addTo(map),vectorGroup=new L.FeatureGroup().addTo(map),pointGroup=new L.FeatureGroup().addTo(map),roiLayer=null,files=[];
+new L.Control.Draw({draw:{polygon:{shapeOptions:{color:'#16845b'}},rectangle:{shapeOptions:{color:'#16845b'}},polyline:false,circle:false,circlemarker:false,marker:false},edit:{featureGroup:roiGroup}}).addTo(map);
+map.on(L.Draw.Event.CREATED,e=>{roiGroup.clearLayers();roiLayer=e.layer;roiGroup.addLayer(roiLayer);updateMetrics();log('ROI drawn on map.')});
+map.on(L.Draw.Event.EDITED,updateMetrics);
+map.on(L.Draw.Event.DELETED,()=>{roiLayer=null;updateMetrics()});
+function areaKm(ll){let area=0;const R=6378137;for(let i=0,j=ll.length-1;i<ll.length;j=i++){const a=ll[i],b=ll[j];area+=(b.lng-a.lng)*Math.PI/180*(2+Math.sin(a.lat*Math.PI/180)+Math.sin(b.lat*Math.PI/180))}return Math.abs(area*R*R/2/1e6)}
+function updateMetrics(){ $('layerCount').textContent=vectorGroup.getLayers().length+(roiGroup.getLayers().length?1:0);$('roiArea').textContent=roiLayer&&roiLayer.getLatLngs?areaKm(roiLayer.getLatLngs()[0]).toFixed(1)+' km²':'—'}
+const regions={kurdistan:[36.25,44.2,7],erbil:[36.19,44.01,9],sulaymaniyah:[35.56,45.44,9],duhok:[36.87,42.95,9],halabja:[35.18,45.98,10],custom:[36.25,44.2,7]};
+function focusRegion(v){const r=regions[v]||regions.kurdistan;map.setView([r[0],r[1]],r[2]);$('region').value=v; if($('quickRegion').querySelector('option[value="'+v+'"]'))$('quickRegion').value=v;log('Map view changed: '+v)}
+$('region').onchange=()=>focusRegion($('region').value);$('quickRegion').onchange=()=>focusRegion($('quickRegion').value);$('fitRegion').onclick=()=>focusRegion($('region').value);
+$('basemap').onchange=()=>{map.removeLayer(base);base=bases[$('basemap').value].addTo(map)};
+$('roiToggle').onchange=e=>e.target.checked?map.addLayer(roiGroup):map.removeLayer(roiGroup);
+$('vectorsToggle').onchange=e=>e.target.checked?map.addLayer(vectorGroup):map.removeLayer(vectorGroup);
+$('pointsToggle').onchange=e=>{if(e.target.checked){pointGroup.clearLayers();[[36.19,44.01,'Erbil'],[35.56,45.44,'Sulaymaniyah'],[36.87,42.95,'Duhok'],[35.18,45.98,'Halabja']].forEach(p=>L.circleMarker([p[0],p[1]],{radius:5,color:'#d69b26',fillColor:'#f6cc70',fillOpacity:.9}).bindPopup(p[2]+' · reference point').addTo(pointGroup));map.addLayer(pointGroup)}else map.removeLayer(pointGroup)};
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function renderFiles(){$('fileCount').textContent=files.length;$('fileList').innerHTML=files.length?files.map((f,i)=>'<div class="fileline"><span>'+esc(f.name)+'<br><span style="color:#8490a2">'+esc(f.type)+' · '+f.count+' feature(s)</span></span><button data-remove="'+i+'">Remove</button></div>').join(''):'<p class="small-note">No files imported yet.</p>';$('fileList').querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{const i=+b.dataset.remove;vectorGroup.removeLayer(files[i].layer);files.splice(i,1);renderFiles();updateMetrics();log('Imported layer removed.')})}
+function addGeoJSON(obj,name){const l=L.geoJSON(obj,{style:{color:'#2864d7',weight:2,fillOpacity:.13},pointToLayer:(f,ll)=>L.circleMarker(ll,{radius:5,color:'#2864d7'})});if(!l.getLayers().length)throw Error('No geographic features found');l.addTo(vectorGroup);files.push({name,type:'GeoJSON',count:l.getLayers().length,layer:l});renderFiles();updateMetrics();map.fitBounds(l.getBounds(),{maxZoom:12});log('Imported '+name+' ('+l.getLayers().length+' features).')}
+$('dataUpload').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const t=await f.text();if(/\.csv$/i.test(f.name)){const rows=t.trim().split(/\r?\n/).map(x=>x.split(','));const h=rows.shift().map(x=>x.trim().toLowerCase());const xi=h.findIndex(x=>['lon','lng','longitude','x'].includes(x)),yi=h.findIndex(x=>['lat','latitude','y'].includes(x));if(xi<0||yi<0)throw Error('CSV needs longitude/lon and latitude/lat columns.');const g=L.featureGroup();rows.forEach(r=>{const x=+r[xi],y=+r[yi];if(Number.isFinite(x)&&Number.isFinite(y)&&Math.abs(x)<=180&&Math.abs(y)<=90)L.circleMarker([y,x],{radius:4,color:'#2864d7'}).bindPopup(esc(r.join(', '))).addTo(g)});if(!g.getLayers().length)throw Error('No valid coordinate rows found.');g.addTo(vectorGroup);files.push({name:f.name,type:'CSV points',count:g.getLayers().length,layer:g});renderFiles();updateMetrics();map.fitBounds(g.getBounds());log('Imported CSV point layer: '+f.name)}else addGeoJSON(JSON.parse(t),f.name)}catch(err){alert('Import failed: '+err.message)}e.target.value=''};
+$('clearLayers').onclick=()=>{vectorGroup.clearLayers();files=[];renderFiles();updateMetrics();log('Imported layers cleared.')};
+$('clearROI').onclick=()=>{roiGroup.clearLayers();roiLayer=null;updateMetrics();log('ROI cleared.')};
+$('drawHint').onclick=()=>alert('Use the drawing controls on the map (polygon or rectangle icon) to draw your area of interest. Then select Export ROI GeoJSON.');
+$('exportROI').onclick=()=>{if(!roiLayer){alert('Draw a polygon or rectangle on the map first.');return}download(JSON.stringify(roiLayer.toGeoJSON(),null,2),'study-area.geojson','application/geo+json');log('ROI exported as GeoJSON.')};
+function download(data,name,type){const a=document.createElement('a'),u=URL.createObjectURL(new Blob([data],{type:type}));a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
+const template=$('code').value;
+$('loadTemplate').onclick=()=>{$('code').value=template;$('codeOutput').textContent='Starter template restored. Review all parameters before use.';log('Code template restored.')};
+$('saveCode').onclick=()=>{try{localStorage.setItem('geodesk-code',$('code').value);$('codeOutput').textContent='Code saved in this browser on this device.';log('Code saved locally.')}catch(e){$('codeOutput').textContent='Could not save locally. Use Download .js instead.'}};
+$('downloadCode').onclick=()=>{download($('code').value,'geodesk-analysis.js','text/javascript');log('JavaScript downloaded.')};
+$('runCode').onclick=()=>{const s=$('code').value;let bal=0,q='',escp=false,ok=true;for(let i=0;i<s.length;i++){const c=s[i];if(escp){escp=false;continue}if(q){if(c==='\\')escp=true;else if(c===q)q='';continue}if(c==='"'||c==="'"||c==='\x60'){q=c;continue}if(c==='{')bal++;if(c==='}')bal--;if(bal<0){ok=false;break}}ok=ok&&bal===0&&!q;$('codeOutput').textContent=(ok?'Basic delimiter check passed.':'Possible unmatched brace or string quote found.')+'\nThis is not a full JavaScript parser and does not execute Earth Engine calls.';log(ok?'Basic delimiter check passed (not executed).':'Code check found a possible delimiter issue.')};
+$('cloudCover').oninput=e=>$('cloudLabel').textContent=e.target.value+'%';
+$('prepareAnalysis').onclick=()=>{const type=$('analysisType').value,ds=$('dataset').value,start=$('dateStart').value,end=$('dateEnd').value,cloud=+$('cloudCover').value;const snippets={
+ ndvi:"var image = collection.median();\nvar ndvi = image.normalizedDifference(['B8','B4']).rename('NDVI');\nMap.addLayer(ndvi, {min:-0.2,max:0.8,palette:['#8c510a','#f6e8c3','#01665e']}, 'NDVI');",
+ ndwi:"var image = collection.median();\nvar ndwi = image.normalizedDifference(['B3','B8']).rename('NDWI');\nMap.addLayer(ndwi, {min:-1,max:1,palette:['#a6611a','#f5f5f5','#018571']}, 'NDWI');",
+ ndmi:"var image = collection.median();\nvar ndmi = image.normalizedDifference(['B8','B11']).rename('NDMI');\nMap.addLayer(ndmi, {min:-1,max:1,palette:['#a6611a','#f5f5f5','#018571']}, 'NDMI');",
+ nbr:"var image = collection.median();\nvar nbr = image.normalizedDifference(['B8','B12']).rename('NBR');\nMap.addLayer(nbr, {min:-1,max:1,palette:['#a50026','#ffffbf','#006837']}, 'NBR');",
+ lst:"// LST needs an appropriate thermal dataset, QA masking and scale factors.\n// Verify the selected dataset and its documented temperature conversion.",
+ lulc:"// Land-cover mapping requires training labels or a validated model.\n// Assess accuracy with independent validation data before interpretation.",
+ terrain:"var dem = ee.Image('USGS/SRTMGL1_003').clip(roi);\nvar terrain = ee.Terrain.products(dem);\nMap.addLayer(dem, {min:0,max:3000}, 'DEM');\nMap.addLayer(terrain.select('slope'), {min:0,max:45}, 'Slope');",
+ drought:"// Define a defensible baseline and validate input datasets first.\n// Consider precipitation anomalies, vegetation condition and soil moisture."
+ };
+let collectionCode="var collection = ee.ImageCollection('"+ds+"')\n  .filterBounds(roi).filterDate(startDate, endDate);\n";
+if(ds==='COPERNICUS/S2_SR_HARMONIZED')collectionCode+="collection = collection.filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', "+cloud+"));\n";
+$('code').value="// GeoDesk RS analysis template: "+type+"\n// Dataset: "+ds+"\n// Period: "+start+" to "+end+"\n// Template only — authenticate and validate before running.\nvar roi = ee.Geometry.Rectangle([43.0, 35.0, 46.5, 37.5]);\nvar startDate = '"+start+"';\nvar endDate = '"+end+"';\n"+collectionCode+(snippets[type]||'');
+$('codeOutput').textContent='Template prepared for '+type+'. Not executed. Verify dataset bands, masking, scaling, dates and study area before analysis.';log('Prepared '+type+' template using '+ds+'.')};
+$('saveProject').onclick=()=>{const obj={version:1,name:$('projectName').value,region:$('region').value,code:$('code').value,roi:roiLayer?roiLayer.toGeoJSON():null,created:new Date().toISOString()};download(JSON.stringify(obj,null,2),'geodesk-project.json','application/json');log('Project exported as JSON.')};
+$('openProject').onclick=()=>$('projectFile').click();
+$('projectFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const o=JSON.parse(await f.text());$('projectName').value=o.name||'GeoDesk project';$('region').value=o.region||'kurdistan';$('quickRegion').value=regions[o.region]&&$('quickRegion').querySelector('option[value="'+o.region+'"]')?o.region:'kurdistan';$('code').value=o.code||template;if(o.roi){roiGroup.clearLayers();roiLayer=L.geoJSON(o.roi,{style:{color:'#16845b'}});roiLayer.addTo(roiGroup);map.fitBounds(roiLayer.getBounds())}updateMetrics();log('Project configuration opened.')}catch(err){alert('Invalid project file: '+err.message)}e.target.value=''};
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.target).scrollIntoView({behavior:'smooth',block:'start'})});
+$('clearLog').onclick=()=>{logLines.length=0;$('log').textContent='Log cleared.'};
+try{const saved=localStorage.getItem('geodesk-code');if(saved)$('code').value=saved}catch(e){}
+setTimeout(()=>map.invalidateSize(),250);
+})();
+</script>
 </body>
 </html>
